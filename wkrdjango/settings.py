@@ -66,10 +66,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wkrdjango.urls'
 
-TEMPLATES = [
+TEMPLATES = [ #templates 디렉토리의 html 쓰기위해 경로 세팅
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #사용할 templates 폴더 이름 그대로 입력
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
