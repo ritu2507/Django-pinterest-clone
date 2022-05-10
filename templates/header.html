@@ -1,0 +1,29 @@
+{#base.html의 <body></body> 내부의 가장 상단#}
+
+<div style="text-align: center; margin:30px 30px;">
+    <div>
+        <h1>Wkrdjango</h1>
+    </div>
+    <div>
+        <span>nav1</span>
+        <span>nav2</span>
+        <span>nav3</span>
+        {% if not user.is_authenticated %}
+        <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
+            <span>login</span>
+        </a>
+        <!-- 회원가입 -->
+        <a href="{% url 'accountapp:create' %}">
+            <span>SignUp</span>
+        </a>
+        {% else %}
+<!--        로그인한 유저의 pk를 pk로 지정하겠다-->
+        <a href="{% url 'accountapp:detail' pk=user.pk %}">
+            <span>Mypage</span>
+        </a>
+        <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
+            <span>logout</span>
+        </a>
+        {% endif %}
+    </div>
+</div>

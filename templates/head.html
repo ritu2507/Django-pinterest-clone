@@ -1,0 +1,16 @@
+{#base.html의 <head></head> 입력부분 html#}
+{# static 폴더의 css 사용하기 위해선 여기서 지정 #}
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wkrdjango</title>
+
+    <!-- 부트스트랩 CSS, 테마, 자바스크립트 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+{#    static 디렉토리의 css 링크#}
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+</head>

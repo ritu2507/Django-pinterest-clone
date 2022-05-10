@@ -49,6 +49,8 @@ cmake-build-*/
 
 # File-based project format
 *.iws
+*.iml
+*.xml
 
 # IntelliJ
 out/
@@ -83,3 +85,6 @@ venv/
 .env
 
 db.sqlite3
+
+.idea/misc.xml
+.idea/wkrdjango.iml

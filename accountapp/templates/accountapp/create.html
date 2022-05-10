@@ -1,0 +1,27 @@
+{#base.html의 틀 그대로 가져옴(=extends), {% block content %} 내부의 내용만 현재 html에서 커스텀#}
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <div style="text-align: center; max-width: 500px; margin: 4rem auto">
+        <div class="mb-4">
+            <h4>SignUp</h4>
+        </div>
+
+				<!-- form action 내부에는 요청 보낼 url 필요 : accountapp 내부의 create라는 라우트로 연결 -->
+        <form action="{% url 'accountapp:create' %}" method="post">   <!-- 메소드는 post로 지정 -->
+						<!-- post 메소드 사용시 반드시 csrf_token 필요 : django에서 기본 제공하는 보안 시스템, 없을시 동작 안함 -->
+						{% csrf_token %}
+
+						<!-- view에서 클래스 정의에 넣어둔 form_class를 따라 form 제공 -->
+<!--						{{form}}-->
+                        {% bootstrap_form form %}
+
+						<!--버튼 만들기 : submit-->
+            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+
+        </form>
+    </div>
+
+{% endblock %}

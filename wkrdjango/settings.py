@@ -14,6 +14,9 @@ from pathlib import Path
 import environ
 import os
 
+#os.path.joins(BASE_DIR, '')의 의미 : 최상위 폴더의 어느 경로에 합친다 : 경로 지정
+from django.urls import reverse_lazy
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -22,6 +25,7 @@ env = environ.Env(
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+#이 프로젝트 자체의 기본 경로(가장 최상위 디렉토리)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Take environment variables from .env file
@@ -51,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
     'accountapp',
 ]
 
@@ -134,7 +139,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#python manage.py collectstatic 명령어 사용시 프로젝트의 모든 static 파일들을 끌어와 저장하는 경로(이 경우엔 staticfiles)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#staticfiles 디렉토리를 지정
+STATICFILES_DIRS = [
+    BASE_DIR / "static", #최상위 디렉토리의 static 디렉토리
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#로그인 로그아웃 리다이렉트 지정
+LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
+LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
