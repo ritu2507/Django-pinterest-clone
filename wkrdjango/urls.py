@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     #app urls.py에 연결
-    path('account/',include('accountapp.urls')),
+    path('accounts/',include('accountapp.urls')),
 ]

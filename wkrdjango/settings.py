@@ -154,3 +154,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #로그인 로그아웃 리다이렉트 지정
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+
+
+#midea setting
+#ex) 127.0.0.1:8000/media/test.jpg
+MEDIA_URL = '/media/'
+
+#python manage.py collectstatic 명령어 사용시 프로젝트의 모든 media 파일들을 끌어와 저장하는 경로(이 경우엔 media)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
