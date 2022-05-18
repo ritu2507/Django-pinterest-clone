@@ -17,9 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    #admin 페이지
+    # admin 페이지
     path('admin/', admin.site.urls),
 
-    #app urls.py에 연결
-    path('accounts/',include('accountapp.urls')),
+    # app urls.py에 연결
+    path('accounts/', include('accountapp.urls')),
+    path('profiles/', include('profileapp.urls')),
 ]
